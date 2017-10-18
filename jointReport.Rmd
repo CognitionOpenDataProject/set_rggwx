@@ -125,7 +125,7 @@ NOTE - author assistance - the author has provided additional information about 
 > This gives you the absolute values reported in Table 1.
 
 ```{r}
-df.pair.condition.summary <- df.tidy %>>%
+df.tidy %>>%
   filter(!excluded) %>%
   group_by(Condition, Pair, Subject, StimulusType) %>>%
   summarize(TT_mean1 = mean(TT),
