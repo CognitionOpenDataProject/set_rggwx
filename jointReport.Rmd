@@ -41,6 +41,7 @@ library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
 library(readxl) # import excel files
 library(CODreports) # custom report functions
 library(lsr) # for Cohens d calculation
+library(pipeR) # for code formatting
 ```
 
 ## Step 2: Load data
@@ -124,7 +125,6 @@ NOTE - author assistance - the author has provided additional information about 
 > This gives you the absolute values reported in Table 1.
 
 ```{r}
-library(pipeR)
 df.pair.condition.summary <- df.tidy %>>%
   filter(!excluded) %>%
   group_by(Condition, Pair, Subject, StimulusType) %>>%
