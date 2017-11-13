@@ -9,8 +9,10 @@ output:
 #### Article ID: rggwx
 #### Pilot: Michael Henry Tessler
 #### Co-pilot: Tom Hardwicke  
-#### Start date: 07/13/2017
-#### End date: 10/18/2017
+#### Start date: Jul 13 2017
+#### End date: Oct 18 2017
+#### Final verification: Tom Hardwicke
+#### Date: Nov 12 2017
 
 -------
 
@@ -29,10 +31,12 @@ The authors are interested in coordinated movements in situations where co-actor
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
+
+# prepare an empty report object, we will update this each time we run compareValues2()
+reportObject <- data.frame("Article_ID" = NA, "valuesChecked" = 0, "eyeballs" = 0, "Total_df" = 0, "Total_p" = 0, "Total_mean" = 0, "Total_sd" = 0, "Total_se" = 0, "Total_ci" = 0, "Total_bf" = 0, "Total_t" = 0, "Total_F" = 0, "Total_es" = 0, "Total_median" = 0, "Total_irr" = 0, "Total_r" = 0, "Total_z" = 0, "Total_coeff" = 0, "Total_n" = 0, "Total_x2" = 0, "Total_other" = 0, "Insufficient_Information_Errors" = 0, "Decision_Errors" = 0, "Major_Numerical_Errors" = 0, "Minor_Numerical_Errors" = 0, "Major_df" = 0, "Major_p" = 0, "Major_mean" = 0, "Major_sd" = 0, "Major_se" = 0, "Major_ci" = 0, "Major_bf" = 0, "Major_t" = 0, "Major_F" = 0, "Major_es" = 0, "Major_median" = 0, "Major_irr" = 0, "Major_r" = 0, "Major_z" = 0, "Major_coeff" = 0, "Major_n" = 0, "Major_x2" = 0, "Major_other" = 0, "affectsConclusion" = NA, "error_typo" = 0, "error_specification" = 0, "error_analysis" = 0, "error_data" = 0, "error_unidentified" = 0, "Author_Assistance" = NA, "resolved_typo" = 0, "resolved_specification" = 0, "resolved_analysis" = 0, "resolved_data" = 0, "correctionSuggested" = NA, "correctionPublished" = NA)
 ```
 
 ## Step 1: Load packages
-
 
 ```{r}
 library(tidyverse) # for data munging
@@ -108,10 +112,10 @@ percentExcluded <- 100*(1-trials_withExclusions/trials_withoutExclusions) # as a
 Looks like the "Error" column includes all the cases where TT > 1.6 as well as some more (possibly the other exclusion criterion: participant touched an obstacle). But I get `r round(percentExcluded, 2)`% excluded, whereas the authors report 1.2%.
 
 ```{r}
-compareValues(reportedValue = 1.20, obtainedValue = 1.35)
+reportObject <- compareValues2(reportedValue =" 1.20", obtainedValue = percentExcluded, valueType = 'n')
 ```
 
-NB - author's have provided assistance - after re-running the analysis themselves they found that the error rate was misreported. They obtain a 1.35% rate, whis what we obtain. No ready explanation for this issue is avaialble.
+NB - author's have provided assistance - after re-running the analysis themselves they found that the error rate was misreported. They obtain a 1.35% rate, whis what we obtain. No ready explanation for this issue is available.
 
 > In order to not inflate statistical power, dependent variables from the remaining trials were first aggregated on an individual participant level and then averaged over the two members of a pair. 
 
@@ -168,12 +172,57 @@ df.tidy %>>%
 Note, there appear to be three discrepancies. All sds:
 
 ```{r}
-compareValues(reportedValue = 9.6, obtainedValue = 12.1)
-compareValues(reportedValue = 7.2, obtainedValue = 29.64)
-compareValues(reportedValue = 7.1, obtainedValue = 29.14)
+reportObject <- compareValues2(reportedValue = "603.1", obtainedValue = 603.1, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "659.4", obtainedValue = 659.4, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "704.7", obtainedValue = 704.7, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "576.1", obtainedValue = 576.1, valueType = 'mean')
+
+reportObject <- compareValues2(reportedValue = "108.4", obtainedValue = 108.4, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "124.8", obtainedValue = 124.7, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "152.3", obtainedValue = 152.3, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "110.5", obtainedValue = 110.5, valueType = 'mean')
+
+reportObject <- compareValues2(reportedValue = "115", obtainedValue = 115, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "125.4", obtainedValue = 125.4, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "114.7", obtainedValue = 114.7, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "119.6", obtainedValue = 119.6, valueType = 'mean')
+
+reportObject <- compareValues2(reportedValue = "32", obtainedValue = 32, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "34.9", obtainedValue = 34.9, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "32.7", obtainedValue = 32.7, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "33.3", obtainedValue = 33.3, valueType = 'mean')
+
+reportObject <- compareValues2(reportedValue = "119.1", obtainedValue = 119.1, valueType = 'mean')
+reportObject <- compareValues2(reportedValue = "109", obtainedValue = 109, valueType = 'mean')
+
+
+reportObject <- compareValues2(reportedValue = "137.4", obtainedValue = 137.4, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "169.6", obtainedValue = 196.6, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "143.2", obtainedValue = 143.2, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "98.2", obtainedValue = 98.2, valueType = 'sd')
+
+reportObject <- compareValues2(reportedValue = "18.7", obtainedValue = 18.7, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "24.8", obtainedValue = 24.8, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "23.8", obtainedValue = 23.8, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "17.5", obtainedValue = 17.5, valueType = 'sd')
+
+reportObject <- compareValues2(reportedValue = "10.6", obtainedValue = 10.6, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "16", obtainedValue = 16, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "11.7", obtainedValue = 11.7, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "9.6", obtainedValue = 12.1, valueType = 'sd')
+
+reportObject <- compareValues2(reportedValue = "5.9", obtainedValue = 5.9, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "9.6", obtainedValue = 9.6, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "6.1", obtainedValue = 6.1, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "5.5", obtainedValue = 5.5, valueType = 'sd')
+
+reportObject <- compareValues2(reportedValue = "7.2", obtainedValue = 29.64, valueType = 'sd')
+reportObject <- compareValues2(reportedValue = "7.1", obtainedValue = 29.14, valueType = 'sd')
 ```
 
-NB - we checked with the authors, and they confirm that they also cannot reproduce these three values. When they repeat their analysis, they get the same values as we do (i.e., not the values reported in the paper). Suggested cause = typo.
+Some major errors here.
+
+NB - we checked with the authors, and they confirm that they also cannot reproduce these three values either. When they repeat their analysis, they get the same values as we do (i.e., not the values reported in the paper). Suggested cause = typo.
 
 > All dependent variables (TT, AUC, asynchrony; reported in Table 1) were normalized by dividing data from each joint condition by the ‘individual (pre)’ condition acquired in the beginning of the experiment. 
 
@@ -191,14 +240,14 @@ d.normalized <- d.summary %>%
   mutate(Hidden_normalized = Hidden / `Individual Pre`,
          Visible_normalized = Visible / `Individual Pre`)
 
-t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
+t.out <- t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
+d <- cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
+reportObject <- compareValues2(reportedValue = "15", obtainedValue = t.out$parameter, valueType = 'df')
+reportObject <- compareValues2(reportedValue = "-3.29", obtainedValue = t.out$statistic, valueType = 't')
+reportObject <- compareValues2(reportedValue = "eyeballMATCH", obtainedValue = t.out$p.value, valueType = 'p')
+reportObject <- compareValues2(reportedValue = "-0.82", obtainedValue = -d, valueType = 'es')
 ```
-MATCH.
 
-```{r}
-cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
-```
-MATCH.
 
 > but also less variable (smaller normalized TTvariability), t(15) = −2.52, p < 0.05, Cohen’s d = −0.63, in the ‘hidden’ condition. 
 
@@ -211,15 +260,14 @@ d.normalized <- d.summary %>%
   mutate(Hidden_normalized = Hidden / `Individual Pre`,
          Visible_normalized = Visible / `Individual Pre`)
 
-t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
-```
-MATCH.
+t.out <- t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
+d <- cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
 
-```{r}
-cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
+reportObject <- compareValues2(reportedValue = "15", obtainedValue = t.out$parameter, valueType = 'df')
+reportObject <- compareValues2(reportedValue = "-2.52", obtainedValue = t.out$statistic, valueType = 't')
+reportObject <- compareValues2(reportedValue = "eyeballMATCH", obtainedValue = t.out$p.value, valueType = 'p')
+reportObject <- compareValues2(reportedValue = "-0.63", obtainedValue = -d, valueType = 'es')
 ```
-
-MATCH.
 
 > In line with our hypothesis that co-actors would modulate movement parameters in a communicative manner when they could see each other, the analysis of normalized AUCmean showed a larger area under the curve in the ‘visible’ condition, t(15) = −3.82, p < 0.01, Cohen’s d = −0.96. 
 
@@ -232,14 +280,14 @@ d.normalized <- d.summary %>%
   mutate(Hidden_normalized = Hidden / `Individual Pre`,
          Visible_normalized = Visible / `Individual Pre`)
 
-t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
-```
-MATCH.
+t.out <- t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
+d <- cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
 
-```{r}
-cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
+reportObject <- compareValues2(reportedValue = "15", obtainedValue = t.out$parameter, valueType = 'df')
+reportObject <- compareValues2(reportedValue = "-3.82", obtainedValue = t.out$statistic, valueType = 't')
+reportObject <- compareValues2(reportedValue = "eyeballMATCH", obtainedValue = t.out$p.value, valueType = 'p')
+reportObject <- compareValues2(reportedValue = "-0.96", obtainedValue = -d, valueType = 'es')
 ```
-MATCH.
 
 > The difference in variability of curvature (normalized AUCvariability), t(15) = −1.4, p > 0.1, Cohen’s d = −0.35, was not significant.
 
@@ -252,34 +300,76 @@ d.normalized <- d.summary %>%
   mutate(Hidden_normalized = Hidden / `Individual Pre`,
          Visible_normalized = Visible / `Individual Pre`)
 
-t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
-```
-MATCH.
+t.out <- t.test(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, paired = T)
+d <- cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
 
-```{r}
-cohensD(d.normalized$Hidden_normalized, d.normalized$Visible_normalized, method = 'paired')
+reportObject <- compareValues2(reportedValue = "15", obtainedValue = t.out$parameter, valueType = 'df')
+reportObject <- compareValues2(reportedValue = "-1.4", obtainedValue = t.out$statistic, valueType = 't')
+reportObject <- compareValues2(reportedValue = "eyeballMATCH", obtainedValue = t.out$p.value, valueType = 'p')
+reportObject <- compareValues2(reportedValue = "-0.35", obtainedValue = -d, valueType = 'es')
 ```
 
-MATCH.
 
 ## Step 5: Conclusion
 
-```{r}
-codReport(Report_Type = 'joint',
-          Article_ID = 'rggwx', 
-          Insufficient_Information_Errors = 1,
-          Decision_Errors = 0, 
-          Major_Numerical_Errors = 4, 
-          Minor_Numerical_Errors = 0,
-          Author_Assistance = T)
-```
 
-We first encountered a problem implementing the excusion criteria. The exclusion rate we encountered did not match the one reported. After corresponding with the author, it transpired that the reported exclusion rate was incorrect, and in their reanalysis the author obtained the same value that we did (major error 1).
 
-We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article (insufficient information error 1). When we implemented this step, we were able to reproduce most values. However, three errors for three standard deviations reported in table 1 remained (major errors 2, 3, and 4). The authors found that they could also not reproduce these three reported values in their own reanalysis, and their findings concurred with our own. They suggested that there the errors may have arisen when copying from the analysis output to the manuscript.
+We first encountered a problem implementing the excusion criteria. The exclusion rate we encountered did not match the one reported. After corresponding with the author, it transpired that the reported exclusion rate was incorrect, and in their reanalysis the author obtained the same value that we did (major error).
+
+We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, three errors for three standard deviations reported in table 1 remained (major errors). The authors found that they could also not reproduce these three reported values in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.
 
 None of the errors appear to effect the substantive conclusions of the paper.
 
+```{r}
+reportObject$Article_ID <- "rggwx"
+reportObject$affectsConclusion <- "unclear"
+reportObject$error_typo <- 3
+reportObject$error_specification <- 0
+reportObject$error_analysis <- 0
+reportObject$error_data <- 0
+reportObject$error_unidentified <- 1
+reportObject$Author_Assistance <- T
+reportObject$resolved_typo <- 0
+reportObject$resolved_specification <- 1
+reportObject$resolved_analysis <- 0
+reportObject$resolved_data <- 0
+reportObject$correctionSuggested <- "no"
+reportObject$correctionPublished <- F
+
+# decide on final outcome
+if(reportObject$Decision_Errors > 0 | reportObject$Major_Numerical_Errors > 0 | reportObject$Insufficient_Information_Errors > 0){
+  reportObject$finalOutcome <- "Failure"
+  if(reportObject$Author_Assistance == T){
+    reportObject$finalOutcome <- "Failure despite author assistance"
+  }
+}else{
+  reportObject$finalOutcome <- "Success"
+  if(reportObject$Author_Assistance == T){
+    reportObject$finalOutcome <- "Success with author assistance"
+  }
+}
+
+# save the report object
+filename <- paste0("reportObject_", reportObject$Article_ID,".csv")
+write_csv(reportObject, filename)
+```
+
+## Report Object
+
+```{r, echo = FALSE}
+# display report object in chunks
+kable(reportObject[2:10], align = 'l')
+kable(reportObject[11:20], align = 'l')
+kable(reportObject[21:25], align = 'l')
+kable(reportObject[26:30], align = 'l')
+kable(reportObject[31:35], align = 'l')
+kable(reportObject[36:40], align = 'l')
+kable(reportObject[41:45], align = 'l')
+kable(reportObject[46:51], align = 'l')
+kable(reportObject[52:57], align = 'l')
+```
+
+## Session information
 
 ```{r session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
