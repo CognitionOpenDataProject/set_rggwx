@@ -630,13 +630,13 @@ reportObject &lt;- compareValues2(reportedValue = &quot;15&quot;, obtainedValue 
 <p>None of the errors appear to effect the substantive conclusions of the paper.</p>
 <pre class="r"><code>reportObject$Article_ID &lt;- &quot;rggwx&quot;
 reportObject$affectsConclusion &lt;- &quot;unclear&quot;
-reportObject$error_typo &lt;- 3
+reportObject$error_typo &lt;- 0
 reportObject$error_specification &lt;- 0
 reportObject$error_analysis &lt;- 0
 reportObject$error_data &lt;- 0
 reportObject$error_unidentified &lt;- 1
 reportObject$Author_Assistance &lt;- T
-reportObject$resolved_typo &lt;- 0
+reportObject$resolved_typo &lt;- 3
 reportObject$resolved_specification &lt;- 1
 reportObject$resolved_analysis &lt;- 0
 reportObject$resolved_data &lt;- 0
@@ -816,7 +816,7 @@ write_csv(reportObject, filename)</code></pre>
 <td align="left">0</td>
 <td align="left">0</td>
 <td align="left">unclear</td>
-<td align="left">3</td>
+<td align="left">0</td>
 </tr>
 </tbody>
 </table>
@@ -838,7 +838,7 @@ write_csv(reportObject, filename)</code></pre>
 <td align="left">0</td>
 <td align="left">1</td>
 <td align="left">TRUE</td>
-<td align="left">0</td>
+<td align="left">3</td>
 </tr>
 </tbody>
 </table>
@@ -874,8 +874,8 @@ write_csv(reportObject, filename)</code></pre>
 ##  ui       X11                         
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
-##  tz       America/Los_Angeles         
-##  date     2017-11-12                  
+##  tz       &lt;NA&gt;                        
+##  date     2017-11-21                  
 ## 
 ##  package    * version    date      
 ##  assertthat   0.2.0      2017-04-11
@@ -926,14 +926,14 @@ write_csv(reportObject, filename)</code></pre>
 ##  purrr      * 0.2.3      2017-08-02
 ##  R6           2.2.2      2017-06-17
 ##  Rcpp         0.12.13    2017-09-28
-##  readr      * 1.1.0      2017-03-22
+##  readr      * 1.1.1      2017-05-16
 ##  readxl     * 1.0.0      2017-04-18
 ##  reshape2     1.4.2      2016-10-22
 ##  rlang        0.1.2      2017-08-09
 ##  rmarkdown    1.6        2017-06-15
 ##  rprojroot    1.2        2017-01-16
 ##  rvest        0.3.2      2016-06-17
-##  scales       0.4.1      2016-11-09
+##  scales       0.5.0      2017-08-24
 ##  stats      * 3.3.2      2016-10-31
 ##  stringi      1.1.5      2017-04-07
 ##  stringr      1.2.0      2017-02-18
