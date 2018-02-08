@@ -631,7 +631,7 @@ reportObject &lt;- compareValues2(reportedValue = &quot;15&quot;, obtainedValue 
 <p>We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, three errors for three standard deviations reported in table 1 remained (major errors). The authors found that they could also not reproduce these three reported values in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.</p>
 <p>None of the errors appear to effect the substantive conclusions of the paper.</p>
 <pre class="r"><code>reportObject$Article_ID &lt;- &quot;rggwx&quot;
-reportObject$affectsConclusion &lt;- &quot;unclear&quot;
+reportObject$affectsConclusion &lt;- &quot;no&quot;
 reportObject$error_typo &lt;- 3
 reportObject$error_specification &lt;- 0
 reportObject$error_analysis &lt;- 0
@@ -817,7 +817,7 @@ write_csv(reportObject, filename)</code></pre>
 <td align="left">1</td>
 <td align="left">0</td>
 <td align="left">0</td>
-<td align="left">unclear</td>
+<td align="left">no</td>
 <td align="left">3</td>
 </tr>
 </tbody>
@@ -877,7 +877,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
 ##  tz       America/Los_Angeles         
-##  date     2018-01-30                  
+##  date     2018-02-07                  
 ## 
 ##  package    * version  date      
 ##  assertthat   0.2.0    2017-04-11

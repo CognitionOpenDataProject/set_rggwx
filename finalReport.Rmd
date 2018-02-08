@@ -320,7 +320,7 @@ None of the errors appear to effect the substantive conclusions of the paper.
 
 ```{r}
 reportObject$Article_ID <- "rggwx"
-reportObject$affectsConclusion <- "unclear"
+reportObject$affectsConclusion <- "no"
 reportObject$error_typo <- 3
 reportObject$error_specification <- 0
 reportObject$error_analysis <- 0
