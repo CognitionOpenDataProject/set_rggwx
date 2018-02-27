@@ -628,7 +628,7 @@ reportObject &lt;- compareValues2(reportedValue = &quot;15&quot;, obtainedValue 
 <div id="step-5-conclusion" class="section level2">
 <h2>Step 5: Conclusion</h2>
 <p>We first encountered a problem implementing the excusion criteria. The exclusion rate we encountered did not match the one reported. After corresponding with the author, it transpired that the reported exclusion rate was incorrect, and in their reanalysis the author obtained the same value that we did (major error).</p>
-<p>We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, three errors for three standard deviations reported in table 1 remained (major errors). The authors found that they could also not reproduce these three reported values in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.</p>
+<p>We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, major errors for four standard deviations reported in table 1 remained. The authors found that they could also not reproduce these four reported values either in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.</p>
 <p>None of the errors appear to effect the substantive conclusions of the paper.</p>
 <pre class="r"><code>reportObject$Article_ID &lt;- &quot;rggwx&quot;
 reportObject$affectsConclusion &lt;- &quot;no&quot;
@@ -877,7 +877,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
 ##  tz       America/Los_Angeles         
-##  date     2018-02-07                  
+##  date     2018-02-27                  
 ## 
 ##  package    * version  date      
 ##  assertthat   0.2.0    2017-04-11
@@ -924,6 +924,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  munsell      0.4.3    2016-02-13
 ##  nlme         3.1-131  2017-02-06
 ##  parallel     3.4.3    2017-12-07
+##  pillar       1.1.0    2018-01-14
 ##  pipeR      * 0.6.1.3  2016-04-04
 ##  pkgconfig    2.0.1    2017-03-21
 ##  plyr         1.8.4    2016-06-08
@@ -943,7 +944,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  stats      * 3.4.3    2017-12-07
 ##  stringi      1.1.6    2017-11-17
 ##  stringr    * 1.2.0    2017-02-18
-##  tibble     * 1.3.4    2017-08-22
+##  tibble     * 1.4.2    2018-01-22
 ##  tidyr      * 0.7.2    2017-10-16
 ##  tidyselect   0.2.3    2017-11-06
 ##  tidyverse  * 1.2.1    2017-11-14
@@ -997,6 +998,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  cran (@0.4.3)                                       
 ##  CRAN (R 3.4.3)                                      
 ##  local                                               
+##  CRAN (R 3.4.3)                                      
 ##  CRAN (R 3.4.0)                                      
 ##  cran (@2.0.1)                                       
 ##  cran (@1.8.4)                                       
@@ -1016,7 +1018,7 @@ write_csv(reportObject, filename)</code></pre>
 ##  local                                               
 ##  CRAN (R 3.4.2)                                      
 ##  CRAN (R 3.4.0)                                      
-##  cran (@1.3.4)                                       
+##  CRAN (R 3.4.3)                                      
 ##  cran (@0.7.2)                                       
 ##  cran (@0.2.3)                                       
 ##  cran (@1.2.1)                                       

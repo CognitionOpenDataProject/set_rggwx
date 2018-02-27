@@ -314,7 +314,7 @@ reportObject <- compareValues2(reportedValue = "-0.35", obtainedValue = -d, valu
 
 We first encountered a problem implementing the excusion criteria. The exclusion rate we encountered did not match the one reported. After corresponding with the author, it transpired that the reported exclusion rate was incorrect, and in their reanalysis the author obtained the same value that we did (major error).
 
-We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, three errors for three standard deviations reported in table 1 remained (major errors). The authors found that they could also not reproduce these three reported values in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.
+We then encountered numerous errors reproducing the descriptive statistics (Table 1). But the authors suggested that there was an additional aggregation step that had not been reported in the article. When we implemented this step, we were able to reproduce most values. However, major errors for four standard deviations reported in table 1 remained. The authors found that they could also not reproduce these four reported values either in their own reanalysis, and their findings concurred with our own. They suggested that the errors may have arisen when copying from the analysis output to the manuscript.
 
 None of the errors appear to effect the substantive conclusions of the paper.
 
